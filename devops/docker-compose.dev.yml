@@ -7,10 +7,10 @@ postgres:
 
 django:
   dockerfile: Dockerfile-dev
-  build: .
+  build: ../todo
   command: python /app/manage.py runserver_plus 0.0.0.0:8000
   volumes:
-    - .:/app
+    - ../todo:/app
   ports:
     - "8000:8000"
   links:

@@ -5,7 +5,7 @@ postgres:
   env_file: .env
 
 django:
-  build: .
+  build: ../todo
   user: django
   links:
     - postgres
@@ -24,7 +24,7 @@ redis:
   image: redis:3.0
 
 celeryworker:
-  build: .
+  build: ../todo
   user: django
   env_file: .env
   links:
@@ -33,7 +33,7 @@ celeryworker:
   command: celery -A todo.taskapp worker -l INFO
 
 celerybeat:
-  build: .
+  build: ../todo
   user: django
   env_file: .env
   links:
